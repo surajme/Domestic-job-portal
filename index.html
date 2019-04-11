@@ -1,0 +1,126 @@
+<!DOCYPE html>
+<html>
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+
+button {
+  background: none;
+  border: solid 2px #474544;
+  color: #474544;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.875em;
+  font-weight: bold;
+  outline: none;
+  padding: 20px 35px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+button:hover  {
+ 
+ color: #F2F3EB;
+}
+
+body {
+  background: linear-gradient(to right,#E8CBC0, #636fa4);
+  text-align: center;
+  font: 13px Helvetica, sans-serif; color:#fff;
+  padding-top:20em;
+}
+
+*   { color:#fff; text-decoration: none;}
+</style>
+<body>
+<h1>WELCOME TO OUR WEBSITE</h1>
+
+<h2>
+  <a href="" class="typewrite" data-period="2000" data-type='[ "Hi, Im Suraj kumar.", "This is a Domestic web portal.", "Find & Hire people with experience & skills for domestic work.", "We help you find the best domestics service available at this area." ]'>
+    
+<span class="wrap"></span>
+  </a>
+</h2>
+</body>
+     <!-- particles.js container --> 
+    <div id="particles-js"></div> 
+  <!-- stats - count particles -->
+    <div class="count-particles"> <span class="js-count-particles">--</span> particles </div> <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+    
+<a href="login.php"><button>Employer</button></a>
+<a href="profile-form.html"><button>Employee</button></a>
+<script>
+//made by suraj singh thevipulm.appspot.com
+var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        
+setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        
+var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+           
+ var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              
+new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+</script>
+</html>
